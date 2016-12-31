@@ -120,6 +120,3 @@ class Say:
 def say(num):
     check = Say(int(num))
     return check.word.lstrip()
-
-
-print say(1000002)

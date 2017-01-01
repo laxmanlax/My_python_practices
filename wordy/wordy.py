@@ -78,5 +78,5 @@ class Wordy:
             return expression_result1
 
 
-test1 = Wordy("What is 22  minus 3?")
+test1 = Wordy("What is 22  minus 3?") ## can test all the cases here 
 print test1.calculate

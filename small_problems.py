@@ -295,4 +295,33 @@ l = ['eat', 'ate', 'done', 'tea', 'soup', 'node']
 
 print anagram(l)
 
-###########################################
+##############################################
+##  print output avg on decending order according to values
+##  input
+##  4
+##  1000 8
+##  2000 8
+##  2000 10
+##  1000 9
+##
+##  output
+##
+##  2000
+##  1000
+
+def hotels():
+    raw = raw_input()
+    t2={}
+    for i in range(int(raw)):
+        temp = raw_input().split()
+        if temp[0] not in t2.keys():
+            t2.update({temp[0]:[int(temp[1])]})
+        else:
+            t2.update({temp[0]: sum(t2[temp[0]]+[int(temp[1])])/len(t2[temp[0]]+[int(temp[1])]) })
+
+    key = t2.keys()
+    val = t2.values()
+    for i in sorted(val)[::-1]:
+        print key[val.index(i)]
+
+hotels()

@@ -325,3 +325,49 @@ def hotels():
         print key[val.index(i)]
 
 hotels()
+
+#############################################
+##  Sample Input
+##
+##  5
+##  Harry
+##  37.21
+##  Berry
+##  37.21
+##  Tina
+##  37.2
+##  Akriti
+##  41
+##  Harsh
+##  39
+##  Sample Output
+##
+##  Berry
+##  Harry
+
+def Nested_list():
+    students=[]
+    stu_name=[]
+    for _ in range(int(raw_input())):
+        name = raw_input()
+        score = float(raw_input())
+        students.append([name,score])
+
+    tt = dict(students).keys()
+    score = dict(students).values()
+
+    if  set(map(lambda x:x.isalpha(),tt))!={True}:
+        name=sorted(tt)
+    else:
+        name=tt
+
+    sec_low = sorted(score)[1]
+
+    if score.count(sec_low) > 1:
+        for i in range(len(score)):
+            if score[i]==sec_low:
+                print name[i]
+    else:
+        print name[score.index(sec_low)]
+
+Nested_list()

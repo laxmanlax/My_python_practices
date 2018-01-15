@@ -1,7 +1,7 @@
 class Binary:
 
     @classmethod
-    def to_decimal(cls, dcml):
+    def from_decimal(cls, dcml):
         binary=''
         while (dcml/2 != 1):
             binary += str(dcml%2)
@@ -11,7 +11,7 @@ class Binary:
         return binary
 
     @classmethod
-    def to_binary(cls, binary):
+    def from_binary(cls, binary):
         n=0
         for char in binary[::-1]:
             n *=2
@@ -20,5 +20,5 @@ class Binary:
         return n
 
 
-print Binary.to_decimal(36)
-print Binary.to_binary("001001")
+print Binary.from_decimal(36)
+print Binary.frmo_binary("001001")

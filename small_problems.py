@@ -76,6 +76,24 @@ def compress(string):
     return compress
 print compress("aaaaabababbbaaaaa")
 
+---- another way to solve -------
+def compress():
+    string="aaaaabababbbaaaaa"
+    comp=""
+    str2=""
+    for i in string:
+        if comp=="":
+            comp+=i
+        elif comp[-1]==i:
+            comp +=i
+        else:
+            str2 += str(len(comp))+ comp[-1]
+            comp=""
+            comp +=i
+            
+    str2 += str(len(comp))+ comp[-1]
+    return str2
+
 ###################################################
 def balance_braces(braces):
     brace_all = {

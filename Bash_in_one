@@ -1,0 +1,472 @@
+#!/usr/bin/bash
+####     
+####     NAME="John"
+####     echo "Hello $NAME"
+####     
+####     echo $NAME
+####     echo "$NAME"
+####     echo "${NAME}!"
+####     
+####     NAME="John"
+####     echo "Hi $NAME"  #=> Hi John
+####     echo 'Hi $NAME'  #=> Hi $NAME
+####     
+####     get_name() {
+####       echo "John"
+####     }
+####     
+####     echo "You are $(get_name)"
+####     
+####     echo "I'm in $(pwd)"
+####     echo "I'm in `pwd`"
+####     
+####     
+####     if [ -z "$string" ]; then
+####       echo "String is empty"
+####     elif [ -n "$string" ]; then
+####       echo "String is not empty"
+####     fi
+####     
+####     
+####     
+####     echo {A,B}.js
+####     
+####     echo {1..5}.js
+####     
+####     
+####     ########################################################################################
+####     
+####     ########################################################################################
+####     
+####     name="John"
+####     echo ${name}
+####     echo ${name/J/j}    #=> "john" (substitution)
+####     echo ${name:0:2}    #=> "Jo" (slicing)
+####     echo ${name::2}     #=> "Jo" (slicing)
+####     echo ${name::-1}    #=> "Joh" (slicing)
+####     echo ${food:-Cake}  #=> $food or "Cake"
+####     length=2
+####     echo ${name:0:length}  #=> "Jo"
+####     
+####     
+####     STR="Hello world"
+####     echo ${STR:6:5}   # "world"
+####     echo ${STR:-5:5}  # "world"
+####     
+####     
+####     SRC="/path/to/foo.cpp"
+####     BASE=${STR##*/}   #=> "foo.cpp" (basepath)
+####     DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+####     
+####     
+####     echo "########################################################################################"
+####     echo "########################################################################################"
+####     
+####     
+####     for i in /etc/rc.*; do
+####       echo $i
+####     done
+####     
+####     
+####     for i in {1..5}; do
+####         echo "Welcome $i"
+####     done
+####     
+####     
+####     #cat file.txt | while read line; do
+####     #  echo $line
+####     #done
+####     
+####     
+####     for i in $(seq 1 2 10)
+####     do
+####        echo "skip by 2 value $i"
+####     done
+####     
+####     
+####     
+####     for i in {5..50..5}; do
+####         echo "Welcome $i"
+####     done
+####     
+####     
+####     
+####     echo "########################################################################################"
+####     echo "########################################################################################"
+####     
+####     myfunc() {
+####         echo "hello $1"
+####     }
+####     
+####     
+####     function myfunc() {
+####         echo "hello $1"
+####     }
+####     
+####     
+####     
+####     myfunc "John"
+####     
+####     
+####     myfunc() {
+####         local myresult='some value'
+####         echo $myresult
+####     }
+####     result=$(myfunc)
+####     
+####     echo $result
+####     
+####     
+####     myfunc() {
+####       return 0
+####     }
+####     
+####     if myfunc; then
+####       echo "success"
+####     else
+####       echo "failure"
+####     fi
+####     
+####     
+####     ## -->> $#	Number of arguments
+####     ## -->> $*	All arguments
+####     ## -->> $@	All arguments, starting from first
+####     ## -->> $1	First argumen
+####     
+####     if [ -e "file.txt" ]; then
+####       echo "file exists"
+####     fi
+####     
+####     echo "########################################################################################"
+####     echo "########################################################################################"
+####     
+####     # --->>  Defining arrays
+####     
+####     
+####     Fruits=('Apple' 'Banana' 'Orange')
+####     
+####     
+####     # --->>  Working with arrays 
+####     
+####     echo ${Fruits[0]} 
+####     echo ${Fruits[@]}  
+####     echo ${Fruits[*]} 
+####     echo ${#Fruits[@]}
+####     echo ${#Fruits}
+####     echo ${#Fruits[1]}
+####     echo ${Fruits[@]:0:1}
+####     echo ${Fruits[@]:1:1}
+####     echo ${Fruits[@]:2:1}
+####     
+####     # --->> Operations
+####     
+####     Fruits=("${Fruits[@]}" "Watermelon")
+####     Fruits=( ${Fruits[@]/Ap*/} ) 
+####     unset Fruits[2] 
+####     
+####     Veggies=("${Fruits[@]}")   
+####     echo ${Fruits[@]} 
+####     
+####     
+####     Fruits=("${Fruits[@]}" "${Veggies[@]}")
+####     echo ${Fruits[@]} 
+####     
+####     
+####     
+####     Fruits=('Apple' 'Banana' 'Orange','laxman','dev','google','facebook')
+####     
+####     
+####     
+####     echo "**************************************************************"
+####     
+####     lines=(`cat "file.txt"`)
+####     echo $lines
+####     
+####     
+####     for i in "${Fruits[@]}"; do
+####       echo $i
+####     done
+####     
+####     for Output in $(ls)
+####     do
+####     	echo $Output
+####         cat "$Output"
+####     done
+####     
+####     
+####     
+####     for ((a=1; a <= 10; a++))
+####     do
+####         echo $a
+####     done
+####     
+####     
+####     echo ################
+####     
+####     
+####     for ((a=1; a <= 20; a = a+2))
+####     do
+####         echo $a
+####     done
+####     
+####     
+####     
+####     #################
+####     
+####     Variable=0
+####     case "$Variable" in
+####         #List patterns for the conditions you want to meet
+####         0) echo "There is a zero.";;
+####         1) echo "There is a one.";;
+####         *) echo "It is not null.";;
+####     esac
+
+
+
+
+####     $0 - The name of the Bash script.
+####     $1 - $9 - The first 9 arguments to the Bash script. (As mentioned above.)
+####     $# - How many arguments were passed to the Bash script.
+####     $@ - All the arguments supplied to the Bash script.
+####     $? - The exit status of the most recently run process.
+####     $$ - The process ID of the current script.
+####     $USER - The username of the user running the script.
+####     $HOSTNAME - The hostname of the machine the script is running on.
+####     $SECONDS - The number of seconds since the script was started.
+####     $RANDOM - Returns a different random number each time is it referred to.
+####     $LINENO - Returns the current line number in the Bash script.
+
+
+
+####   Operator	               Description
+####   ====================================================================
+####   
+####   ! EXPRESSION	            The EXPRESSION is false.
+####   -n STRING	            The length of STRING is greater than zero.
+####   -z STRING	            The lengh of STRING is zero (ie it is empty).
+####   STRING1 = STRING2	    STRING1 is equal to STRING2
+####   STRING1 != STRING2	    STRING1 is not equal to STRING2
+####   INTEGER1 -eq INTEGER2	INTEGER1 is numerically equal to INTEGER2
+####   INTEGER1 -gt INTEGER2	INTEGER1 is numerically greater than INTEGER2
+####   INTEGER1 -lt INTEGER2	INTEGER1 is numerically less than INTEGER2
+####   -d FILE	FILE            exists and is a directory.
+####   -e FILE	FILE            exists.
+####   -r FILE	FILE            exists and the read permission is granted.
+####   -s FILE	FILE            exists and it's size is greater than zero (ie. it is not empty).
+####   -w FILE	FILE            exists and the write permission is granted.
+####   -x FILE	FILE            exists and the execute permission is granted.
+
+
+
+
+
+####     let expression
+####     Make a variable equal to an expression.
+####     expr expression
+####     print out the result of the expression.
+####     $(( expression ))
+####     Return the result of the expression.
+####     ${#var}
+####     Return the length of the variable var.
+
+
+
+
+####    # case example
+####    case $1 in
+####         start)
+####           echo starting
+####         ;;
+####         stop)
+####           echo stoping
+####         ;;
+####         restart)
+####           echo restarting
+####         ;;
+####         *)
+####           echo don\'t know
+####         ;;
+####         esac
+
+
+
+####    space_free=$( df -h | awk '{ print $5 }' | sort -n | tail -n 1 | sed 's/%//' )
+
+####    case $space_free in
+####         [1-5]*)
+####           echo Plenty of disk space available
+####         ;;
+####         [6-7]*)
+####           echo There could be a problem in the near future
+####         ;;
+####         8*)
+####           echo Maybe we should look at clearing out old files
+####         ;;
+####         9*)
+####           echo We could have a serious problem on our hands soon
+####         ;;
+####         *)
+####           echo Something is not quite right here
+####         ;;
+####         esac
+
+
+
+####    a=$(( 4 + 5 ))
+####    echo $a # 9
+####    a=$((3+5))
+####    echo $a # 8
+####    b=$(( a + 3 ))
+####    echo $b # 11
+####    b=$(( $a + 4 ))
+####    echo $b # 12
+####    (( b++ ))
+####    echo $b # 13
+####    (( b += 3 ))
+####    echo $b # 16
+####    a=$(( 4 * 5 ))
+####    echo $a # 20
+
+
+####    expr 5 + 4
+####    expr "5 + 4"
+####    expr 5+4
+####    expr 5 \* $1
+####    expr 11 % 2
+####    a=$( expr 10 - 3 )
+####    echo $a # 7
+
+
+####    let a=5+4
+####    echo $a # 9
+####    let "a = 5 + 4"
+####    echo $a # 9
+####    let a++
+####    echo $a # 10
+####    let "a = 4 * 5"
+####    echo $a # 20
+####    let "a = $1 + 30"
+####    echo $a # 30 + first command line argume
+####    let a=5+4
+####    echo $a # 9
+####    let "a = 5 + 4"
+####    echo $a # 9
+####    let a++
+####    echo $a # 10
+####    let "a = 4 * 5"
+####    echo $a # 20
+####    let "a = $1 + 30"
+####    echo $a # 30 + first command line argume
+
+
+
+
+
+####    if [ -r $1 ] && [ -s $1 ]
+####    then
+####    echo This file is useful.
+####    fi
+
+
+####    if [ $USER == 'bob' ] || [ $USER == 'andy' ]
+####    then
+####    ls -alh
+####    else
+####    ls
+####    fi
+
+
+
+####    for value in {10..0..2} 
+####    do
+####	echo $value
+####    done
+####    echo All done
+
+
+
+
+
+####    counter=1
+
+####    while [ $counter -le 10 ]
+####    do
+####	   echo $counter
+
+####	((counter++))
+####    done
+####    echo All done
+
+
+
+
+####    names='Kyle Cartman Stan Quit'
+####    PS3='Select character: '
+####    select name in $names
+####    do
+####	if [ $name == 'Quit' ]
+####		then
+####			break
+####    fi 
+
+####    echo Hello $name
+####    done
+
+####    echo Bye
+
+
+
+
+
+####    # Experimenting with variable scope
+####    var_change () {
+####	local var1='local 1'
+####	echo Inside function: var1 is $var1 : var2 is $var2
+####        var1='changed again'
+####        var2='2 changed again'
+####       }
+####       
+####       var1='global 1'
+####       var2='global 2'
+####       echo Before function call: var1 is $var1 : var2 is $var2
+
+####       var_change
+
+####       echo After function call: var1 is $var1 : var2 is $var2
+
+
+
+####    echo "\taa\tbb\tcc\n" 
+####    printf "\taa\tbb\tcc\n"
+
+
+####    echo -n "Enter your name: " 
+####    read user_name
+####    if [ -n "$user_name" ]; then echo "Hello $user_name!" 
+####	exit 0
+####    else
+####    echo "You did not tell me your name!" 
+####    exit 1
+####    fi
+
+
+####    function show_usage {
+####    echo "Usage: $0 source_dir dest_dir" 
+####    exit 1
+####    }
+
+####    if [ $# -ne 2 ]; then 
+####	show_usage
+####    else
+####	show_usage
+
+
+
+
+
+
+
+
+
+
+

@@ -97,18 +97,20 @@ def compress():
 ###################################################
 def balance_braces(braces):
     brace_all = {
-             '(':')',
-             '[':']',
-             '{':'}'
+             '}':'{'
+             ']':'[',
+             ')':'('
              }
-    sub_br = brace_all.values()
-    list_1=[]
+    balance=[]
     for i in braces:
-        if i in brace_all.keys():
-            list_1.append(i)
-        elif i in sub_br and (brace_all[list_1[-1]] == i):
+        if i in brace_all.values():
+            balance.append(i)
+        elif balance!=[] and balance[-1]==brace_all[i]:
             list_1.pop()
-    return list_1 ==
+        else:
+            return False 
+            
+    return list_1==[]
 
 print balance_braces("{{()[]}}{")
 

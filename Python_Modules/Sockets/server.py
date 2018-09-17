@@ -8,7 +8,7 @@ def echo_server(addr):
     while True:
         client, addr = sock.accept()
         print "Connection :", addr 
-        Thread(target=echo_handler, args=(client,),).start()
+        Thread(target=echo_handler, args=(client,),).start()   ## for handling mutiple connections  
         #echo_handler(client)
 
 

@@ -2,7 +2,7 @@ from socket import *
 from threading import Thread
 import time
 
-port = 50008
+port = 5000
 host = 'localhost'
 
 def server():
@@ -27,7 +27,7 @@ def main():
     sthred = Thread(target=server)
     sthred.daemon = True
     sthred.start()
-    count =0 
+    count =0
     while True:
         time.sleep(0.9)
         text = "client............."+str(count)

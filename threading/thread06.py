@@ -1,6 +1,6 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 import Queue
-import threading 
+import threading
 import multiprocessing
 
 def worker(q, val, j):
@@ -14,12 +14,10 @@ def main():
     for i in range(3):
         t1 = threading.Thread(target=worker, args=(q,range(5), i))
         t1.start()
-    
-    t1.join()
+
     while not q.empty():
         print q.get()
 
 
 if __name__=="__main__":
     main()
-    

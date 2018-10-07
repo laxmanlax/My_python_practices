@@ -1,41 +1,40 @@
 #producer and consumer threads communicating with a shared queue
-# https://www.agiliq.com/blog/2013/10/producer-consumer-problem-in-python/   
-
+#https://www.agiliq.com/blog/2013/10/producer-consumer-problem-in-python/
 import threading
 import Queue
 import time
 
 numconsumer = 2
 numproducer = 4
-nummessages = 4
+nummessages = 10
 
 dataQueue = Queue.Queue()
 
-
 def producer(idnum, dataqueue):
     for msgnum in range(nummessages):
-        time.sleep(idnum)
-        dataqueue.put('[producer id=%d, count=%d]' % (idnum, msgnum))
+        time.sleep(0.2)
+        dataqueue.put('[producer id : {}, count  :  {}]'.format(idnum, msgnum))
 
 def consumer(idnum, dataqueue):
     while True:
         time.sleep(0.2)
         try:
-            data = dataQueue.get(block=False)
+            data = dataQueue.get()
         except Queue.Empty:
-            pass 
+            pass
         else:
-            print "consumer :", idnum, "got =>", data
+            print "Consumer ---->>  {} got ----->>  {}".format(idnum, data)
 
 def main():
     for num in range(numconsumer):
         thread = threading.Thread(target=consumer, args=(num,dataQueue))
-        thread.daemon = True
+        thread.deamon = True
         thread.start()
 
     waitfor=[]
-    for i in range(numproducer):
-        thread = threading.Thread(target=producer, args=(i,dataQueue))
+
+    for num in range(numproducer):
+        thread = threading.Thread(target=producer, args=(num,dataQueue))
         waitfor.append(thread)
         thread.start()
 

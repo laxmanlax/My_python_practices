@@ -1,41 +1,41 @@
 import glob
 import os
+import sys
 
-def tree(current_dir, level):
-    level += 1
-    all_current = glob.glob(current_dir)  # get all  current dir file
+userDir = sys.argv[1]
 
-    for test in all_current:
-        if "directory" in os.popen("stat "+test).read(500).split():
-            if "/" in test:
-                dirname = test.split("/")[-1]
+def tree(currDir, level):
+    level +=1
+    current_dir = glob.glob(userDir)
+
+    for fname in current_dir:
+        if os.path.isdir(fname):
+            if "/" in fname.split("/"):
+                dirname = fname.split("/")[-1]
             else:
-                dirname = test
+                dirname = fname
+            indent = "   |"*level-1+" +- "
+            print "{} {}".format(indent, dirname)
+            newDir = dirname + "/*"
+            tree(newDir,level)
 
-            indent = '  |' * (level-1) + '  +- '
-
-            print "%s%s" % (indent, dirname)
-            new_dir = test+"/*"
-            tree(new_dir, level)
-
-        elif "regular" in os.popen("stat "+test).read(500).split():
-            if "/" in test:
-                filename = test.split("/")[-1]
+        elif os.path.link(fname):
+            if "/" in fname.split("/"):
+                linkName = fname.split("/")[-1]
             else:
-                filename = test
-            indent = '  |' * (level) + '  +- '
-            print "%s%s" % (indent, filename)
+                linkName = fname
+            indent = "  |"*level+" +- "
+            linkto = os.popen("stat ", fname).readlines(200)[3]
+            link = linkName ,"--->>", linkto
+            print "{}{}".format(indent, link)
         else:
-            if "/" in test:
-                linkname = test.split("/")[-1]
+            if "/" in fname.split("/"):
+                fileName = fname.split("/")[-1]
             else:
-                linkname = test
-            linkto = os.popen("stat "+test).read(500).split()
-            link = linkname+" --> " + linkto[3]
-            indent = '  |' * (level) + '  +- '
-            print "%s%s" % (indent, link)
-
+                fileName = fname
+            indent = "  |"*level+" +- "
+            print "{}{}".format(indent, fileName)
 
 level = 0
-homedir = "*"
-tree(homedir, level)
+currDir = userDir
+tree(currDir, level)

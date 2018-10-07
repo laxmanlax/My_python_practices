@@ -11,7 +11,6 @@ def echo_server(addr):
         Thread(target=echo_handler, args=(client,),).start()   ## for handling mutiple connections  
         #echo_handler(client)
 
-
 def echo_handler(client):
     while True:
         req = client.recv(1024)

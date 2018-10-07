@@ -1,12 +1,11 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 from multiprocessing import Pool
 
 def f(n):
-    sum = 0 
+    sum = 0
     for x in range(n) :
         sum += x*x
-
-    return sum   
+    return sum
 
 
 def main():
@@ -14,9 +13,5 @@ def main():
     result = p.map(f, range(100))
     print result
 
-
 if __name__=="__main__":
     main()
-
-
-

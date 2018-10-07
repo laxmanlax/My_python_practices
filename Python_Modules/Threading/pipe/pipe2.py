@@ -14,7 +14,6 @@ def parent(pipein):
         line = os.read(pipein, 32)
         print "Parent",os.getpid(),line,"---",time.time()
 
-
 def main():
     pipein, pipeout = os.pipe()
     threading.Thread(target=child, args=(pipeout,)).start()
@@ -22,9 +21,3 @@ def main():
 
 if __name__=="__main__":
     main()
-
-
-
-
-
-

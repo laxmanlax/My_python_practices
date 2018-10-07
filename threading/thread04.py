@@ -1,13 +1,13 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 import threading
-import time 
+import time
 
 
 def squre(x):
     print "Calculate square......."
     for i in x:
         time.sleep(0.02)
-        print "Square : {}".format(i*i) 
+        print "Square : {}".format(i*i)
 
 
 def cube(x):
@@ -19,7 +19,6 @@ def cube(x):
 
 def main():
     arr=[2,3,4,5,6]
-    
     t = time.time()
     t1 = threading.Thread(target=squre, args=(arr,))
     t2 = threading.Thread(target=cube, args=(arr,))
@@ -30,7 +29,7 @@ def main():
 
     t1.join()
     t2.join()
-    
+
 
 if __name__=="__main__":
     main()

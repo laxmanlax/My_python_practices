@@ -21,7 +21,7 @@ def client(name):
     sock.send(name.encode())
     reply = sock.recv(1024)
     sock.close()
-    print "client got {}:".format(reply)
+    #print "client got {}:".format(reply)
 
 def main():
     sthred = Thread(target=server)

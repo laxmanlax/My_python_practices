@@ -8,12 +8,11 @@ def child(w):
         time.sleep(zzz)
         msg = ("This is the child pid ====" + str(pid)+ "").encode()
         os.write(w,msg)
-        zzz = (zzz+1)%5 
+        zzz = (zzz+1)%5
 
 
 def parent():
     read_from , write_to = os.pipe()
-
     if os.fork() == 0:
         child(write_to)
     else:
@@ -22,4 +21,4 @@ def parent():
           print "Parent =====>>>", os.getpid(), line
 
 
-parent() 
+parent()

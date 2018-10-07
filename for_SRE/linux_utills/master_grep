@@ -1,0 +1,18 @@
+##
+## --->>> list all the finctions start with a--z and _
+
+declare -f | grep "^[a-z_]"
+
+lgoswami@lgoswami-wsl1:~/RnD/laxman/My_python_practices/linux_utills$ declare -f | grep "^[a-z_]"
+__expand_tilde_by_ref ()
+__get_cword_at_cursor_by_ref ()
+__git_eread ()
+__git_ps1 ()
+__git_ps1_colorize_gitstring ()
+__git_ps1_show_upstream ()
+__grub_dir ()
+__grub_get_last_option ()
+__grub_get_options_from_help ()
+
+more .....
+....

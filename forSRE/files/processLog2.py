@@ -1,9 +1,9 @@
-f = open("text2.txt","r")
+f = open("text.txt","r")
 
 result = {}
-requestType = {}
 
 for i in f:
+    requestType = {}
     requestCode = {}
 
 
@@ -20,16 +20,11 @@ for i in f:
     {"host":[{"rType":[{"status":rSCount}, rTCount]},HCount]
     '''
 
-
     if host not in result:
         requestCode[reqCode]=rSCount
         requestType[reqType] = [requestCode, rTCount]
         result[host] = [requestType, HCount]
-        print result 
     else:
-        TypeArr=[]
-        CodeArr=[]
-        
         result[host][1]+=1
 
         if reqType in result[host][0]:
@@ -46,33 +41,4 @@ for i in f:
             requestType = result[host][0]
             requestType[reqType]=[requestCode,rTCount]
 
-print result
-'''
-# {"host":["rType":[{"status":[hostCount,rCount,resCount]}],rCount]}
-
-    if host not in result:
-        hostCount=1
-        responceType[resCode] = [resCount, rTCount, hostCount]
-        reqType[rType] = responceType
-        result[host] = reqType
-    else:
-
-        print rType , result[host]
-        if rType not in result[host]:
-            rTCount = 1
-            responceType[resCode] = [resCount, rTCount, hostCount]
-            reqType[rType] = responceType
-        else:
-            if resCode not in responceType:
-                resCount=1
-                responceType[resCode] = [resCount, rTCount, hostCount]
-            else:
-                resCount = result[host][rType][resCode][0]+1
-
-            rTCount=result[host][rType][resCode][1]+1
-
-        hostCount = result[host][rType][resCode][2]+1
-        result[host][rType][resCode]=[resCount, rTCount, hostCount]
-
-print result
-'''
+print result 

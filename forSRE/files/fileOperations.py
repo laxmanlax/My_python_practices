@@ -28,7 +28,7 @@ f = open("sample.txt","r")
 # ===================================
 # '''
 
-'''
+
 Allclusters ={}
 for items in f.readlines():
     cluster = items.split()[7]
@@ -39,13 +39,25 @@ for items in f.readlines():
         Allclusters[cluster]=Allclusters[cluster]+[host]
 
 print Allclusters 
-'''
 
+
+download_dir="output.csv"
+csv = open(download_dir,"w")
+
+columnTitleRow = "CLUSTRT, HOSTS \n"
+
+csv.write(columnTitleRow)
+
+for clName, hosts in Allclusters.items():
+    row = clName + "," + " ".join(hosts) + "\n"
+    csv.write(row)
 
 '''
 We can use Regex to search throught the file .... 
 =================================================
 '''
 
+'''
 import re 
 print re.findall("\w+[1-9]-\w+[1-9]-[1-9]-\w+", f.read())
+'''

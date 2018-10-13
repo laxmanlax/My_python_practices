@@ -1,0 +1,5 @@
+CLUSTRT, HOSTS 
+blitz4,blitz4-mnds1-1-sfm blitz4-mnds1-2-sfm blitz4-mnds1-3-sfm blitz4-dnds1-1-sfm blitz4-dnds1-2-sfm blitz4-dnds1-3-sfm blitz4-dnds1-4-sfm
+blitz1,blitz1-mnds1-1-sfm blitz1-mnds1-2-sfm blitz1-mnds1-3-sfm blitz1-dnds1-1-sfm blitz1-dnds1-2-sfm blitz1-dnds1-3-sfm blitz1-dnds1-4-sfm
+blitz3,blitz3-mnds1-1-sfm blitz3-mnds1-2-sfm blitz3-mnds1-3-sfm blitz3-dnds1-1-sfm blitz3-dnds1-2-sfm blitz3-dnds1-3-sfm blitz3-dnds1-4-sfm blitz3-dnds1-5-sfm blitz3-dnds1-6-sfm blitz3-dnds1-7-sfm blitz3-dnds1-8-sfm
+blitz2,blitz2-mnds1-1-sfm blitz2-mnds1-2-sfm blitz2-mnds1-3-sfm blitz2-dnds1-1-sfm blitz2-dnds1-2-sfm blitz2-dnds1-3-sfm blitz2-dnds1-4-sfm blitz2-dnds1-7-sfm blitz2-dnds1-8-sfm

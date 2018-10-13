@@ -1,6 +1,6 @@
 #with open("text.txt", 'r') as f:
 #    for line in f:
-#        print line 
+#        print line
 #
 #    # f_conts = f.read()
 #    # print f_conts
@@ -10,8 +10,9 @@
 #
 #    f_conts = f.readlines()
 #    for i in f_conts:
-#        print i 
+#        print i
 #
+
 processdata ={}
 f1 = open("text.txt",'r')
 f_conts = f1.readlines()
@@ -56,7 +57,7 @@ for i in f_conts:
                 processdata[host][0][httpkey] = clientError
                 processdata[host][1] = hostcount
         else:
-            
+
             if httpkey not in processdata.values()[0][0]:
                 processdata[host][0][httpkey] = serverError
                 hostcount += processdata[host][1]
@@ -66,7 +67,7 @@ for i in f_conts:
                 hostcount += processdata[host][1]
                 processdata[host][0][httpkey] = serverError
                 processdata[host][1] = hostcount
-                
+
 print processdata
 #print (f.name)
 #f.close()

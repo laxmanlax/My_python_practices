@@ -62,8 +62,6 @@ def ProcessApachelog(f):
         
         print processData,("\n")*3 
 
-
-
 def main():
     try:
         ProcessApachelog(f)

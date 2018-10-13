@@ -1,7 +1,6 @@
 #!/usr/bin/env python 
 from socket import *
 
-
 server =("127.0.0.1", 25002)
 s = socket(AF_INET, SOCK_STREAM)
 s.bind(server)

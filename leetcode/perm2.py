@@ -28,9 +28,7 @@ def perm2(lst):
                 yield [x]+p
 
 
-
 data = list("abc")
-
 
 # for p in perm2(data):
 #     print p 

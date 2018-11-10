@@ -19,7 +19,6 @@ def checkRecord(s):
     if len(s)<2:
         record = [s]
     else:
-
         for i in range(1, len(s)):
             if s[i-1]!=s[i]:
                 if s[i-1] not in record:

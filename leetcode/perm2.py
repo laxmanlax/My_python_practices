@@ -15,6 +15,7 @@ def perm(lst):
             
         return l 
 
+
 def perm2(lst):
     if len(lst) == 0:
         yield []
@@ -24,11 +25,11 @@ def perm2(lst):
         for i in range(len(lst)):
             x = lst[i]
             xs = lst[:i]+lst[i+1:]
-            for p in perm(xs):
+            for p in perm2(xs):
                 yield [x]+p
 
 
-data = list("abc")
+data = list("aab")
 
 # for p in perm2(data):
 #     print p 
@@ -36,5 +37,6 @@ data = list("abc")
 # print "-------------------------------"
 
 
-for p in perm(data):
-    print p 
+for p in perm2(data):
+    if  "".join(p) == "".join(p[::-1]):
+        print p ,"--"

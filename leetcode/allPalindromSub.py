@@ -16,3 +16,7 @@ def helper(string, left, right):
 
     return inter_count
 
+
+str1 = "carerac"
+str1="aab"
+print countPalinSubstr(str1)

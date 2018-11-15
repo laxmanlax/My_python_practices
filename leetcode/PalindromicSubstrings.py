@@ -25,6 +25,6 @@ def helper(string , left, right):
         right +=1
     return inter_count
 
-
-
+s="abc"
+print countSubstrings(s)
 

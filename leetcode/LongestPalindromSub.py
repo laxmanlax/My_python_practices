@@ -14,3 +14,6 @@ def helper(string , left, right):
         left -=1
         right +=1
     return string[left+1:right]
+
+s="aba"
+print longestPalinDrom(s):

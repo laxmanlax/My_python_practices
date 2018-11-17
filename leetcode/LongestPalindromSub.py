@@ -1,6 +1,7 @@
 def longestPalinDrom(s):
     res = ""
-    for i in range(s):
+    temp =""
+    for i in range(len(s)):
         temp = helper(s, i, i)
         if len(temp) > len(res):
             res=temp
@@ -9,11 +10,18 @@ def longestPalinDrom(s):
         if len(temp) > len(res):
             res=temp
     
+    return res 
+    
 def helper(string , left, right):
-    if left >= 0 and right < len(string) and string[left]==string[right]:
+    print string, left, right
+
+    while  left >= 0 and right < len(string) and string[left]==string[right]:
+        print string[left],string[right]
         left -=1
         right +=1
+    print "return",string[left:right]
     return string[left+1:right]
 
-s="aba"
-print longestPalinDrom(s):
+s="aabaabaaa"
+s="baa"
+print longestPalinDrom(s)

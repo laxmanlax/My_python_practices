@@ -1,11 +1,14 @@
 """
 find the no of subsets that sum up to a total value 
 """
-
 def count_sets(arr, total):
-    return rec(arr, total, len(arr) - 1)
+    return rec(arr, total, len(arr) - 1, mem)
 
-def rec(arr, total, i):
+def rec(arr, total, i, mem):
+    key = str(total)
+    if key in mem:
+        return mem[key]
+
     if total == 0:
         return 1
     elif total < 0:
@@ -13,11 +16,12 @@ def rec(arr, total, i):
     elif i < 0:
         return 0 
     elif total < arr[i]:
-        print total , arr, arr[i]
-        return rec(arr, total, i-1)
+        to_return = rec(arr, total, i-1, mem)
     else:
-        print total, arr, arr[i]
-        return rec(arr, total - arr[i], i-1) + rec(arr, total, i-1)
+        to_return = rec(arr, total - arr[i], i-1, mem) + rec(arr, total, i-1, mem)
+    mem[key] = to_return
+    return to_return
+
 
 
 arr=[2,4,6,10]

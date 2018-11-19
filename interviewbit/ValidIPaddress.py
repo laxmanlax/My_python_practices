@@ -32,6 +32,7 @@ def restorelpAddresses(s):
 
                 if isvalid(s1) and isvalid(s2) and isvalid(s3) and isvalid(s4):
                     ans.append(s1+'.'+s2+'.'+s3+'.'+s4)
+                    
     return sorted(ans)
 
 def isvalid(s):

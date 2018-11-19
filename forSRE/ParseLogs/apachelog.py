@@ -6,7 +6,7 @@ Sample Data-Structure
 
 """
 def parseweblog(logfile):
-    f = open("logfile", "r")
+    f = open(logfile, "r")
     result = {}
 
     for i in f:
@@ -45,7 +45,7 @@ def parseweblog(logfile):
 
 def main():
     logfile="text.txt"
-    parseweblog(logfile)
+    print parseweblog(logfile)
 
 if __name__=="__main__":
     main()

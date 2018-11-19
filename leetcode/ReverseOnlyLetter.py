@@ -29,7 +29,10 @@ def reverseOnlyLetters(S):
             stack2.append(S[i])
 
     rev_list = list("".join(re.split("[\W+\d*]", S[::-1])))
-
+    
+    print S 
+    print rev_list 
+    
     for i in range(len(stack1)):
         rev_list.insert(stack1[i], stack2[i])
 

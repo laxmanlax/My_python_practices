@@ -5,7 +5,7 @@ n = 0
 def echo_client(addr, n):
     sock = socket(AF_INET, SOCK_STREAM)
     sock.connect(addr)
-
+    
     #message = raw_input()
     #while message.lower().strip()!="bye":
     #    sock.send(message.encode())

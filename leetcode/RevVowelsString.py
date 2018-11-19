@@ -19,6 +19,7 @@ def reverseVowels(s):
         if s[i].lower() in ["a","e","i","o","u"]:
             stack1.append(s[i])
             stack2.append(i)
+            
     tstr=list(s)
 
     for i in stack2:

@@ -16,7 +16,7 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 """
 def repeatedSubstringPattern(s):
     for i in range(len(s)):
-        if s.count(s[0:i])*s[0:i]==s:
+        if s.count(s[0:i])*s[0:i]==len(s):
             return True 
     
     return False 

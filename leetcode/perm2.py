@@ -8,7 +8,7 @@ def perm(lst):
         for i in range(len(lst)):
             x = lst[i]
             xs = lst[:i]+lst[i+1:]
-            print "for", x , xs 
+            
             for p in perm(xs):
                 l.append([x]+p)
                 print "result ------",[x]+p 

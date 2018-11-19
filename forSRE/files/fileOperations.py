@@ -28,7 +28,6 @@ f = open("sample.txt","r")
 # ===================================
 # '''
 
-
 Allclusters ={}
 for items in f.readlines():
     cluster = items.split()[7]
@@ -39,17 +38,14 @@ for items in f.readlines():
         Allclusters[cluster]=Allclusters[cluster]+[host]
 
 print Allclusters 
-
-
 download_dir="output.csv"
 csv = open(download_dir,"w")
 
 columnTitleRow = "CLUSTRT, HOSTS \n"
-
 csv.write(columnTitleRow)
 
 for clName, hosts in Allclusters.items():
-    row = clName + "," + " ".join(hosts) + "\n"
+    row = clName + " , " + " ".join(hosts) + "\n"
     csv.write(row)
 
 '''

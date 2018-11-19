@@ -11,7 +11,6 @@ Ex : = Data Structure
 "DELETE": [{"200": statuscount, "500": statuscount, "400": statuscount}, reqestCount]}, hostcount]}
 '''
 
-
 def ProcessApachelog(f):
     allStatus = {}
     allRequests = {}
@@ -60,7 +59,7 @@ def ProcessApachelog(f):
                 allRequests[rType] = rCount
                 processData[host] = reqType
         
-        print processData,("\n")*3 
+    print processData,("\n")*3 
 
 def main():
     try:

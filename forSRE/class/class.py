@@ -15,8 +15,6 @@ class Employee:
         self.pay = int(self.pay*self.raise_amount)
 
 
-
-
 ##########
 emp1 = Employee("laxman", "Goswami", 200000000000000)
 emp1 = Employee("Rd", "Goswami", 24000000000000)

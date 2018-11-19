@@ -1,3 +1,7 @@
+"""
+This Code will generate all the file and directories in a tree format 
+This is an implimentation of tree command 
+"""
 import glob
 import os
 

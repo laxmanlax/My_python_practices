@@ -1,0 +1,15 @@
+Commands :
+## Listing and Inspecting 
+Kubectl cluster-info 
+Kubectl get nodes -o wide 
+Kubectl get pods —namespace cube-system -o wide 
+Kubectl api-resource
+Kubectl explain pod
+Kubectl explain pod.sec 
+Kubectl explain pod.sec.ports
+Kubectl explain service
+Kubectl explain service.sec | more 
+Kubectl explain service.sec.containers 
+Kubectl describe nodes node-name 
+Kubectl get deployment 
+Kubectl exec -it hello-world-pod — /bin/bash 

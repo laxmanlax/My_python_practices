@@ -1,0 +1,14 @@
+blitz1-mnds1-1-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz1    sfm    sfm.blitz    Bigdata
+blitz1-mnds1-2-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz1    sfm    sfm.blitz    Bigdata
+blitz1-mnds1-3-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz1    sfm    sfm.blitz    Bigdata
+blitz2-mnds1-4-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz2    sfm    sfm.blitz    Bigdata
+blitz2-mnds1-5-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz2    sfm    sfm.blitz    Bigdata
+blitz2-mnds1-6-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz2    sfm    sfm.blitz    Bigdata
+blitz3-mnds1-7-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz3    sfm    sfm.blitz    Bigdata
+blitz3-mnds1-8-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz3    sfm    sfm.blitz    Bigdata
+blitz3-mnds1-9-sfm    CentOS 6.9    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz3    sfm    sfm.blitz    Bigdata
+blitz4-mnds2-1-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz4    sfm    sfm.blitz    Bigdata
+blitz4-mnds2-2-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz4    sfm    sfm.blitz    Bigdata
+blitz4-mnds2-3-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz4    sfm    sfm.blitz    Bigdata
+blitz1-dnds2-4-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz1    sfm    sfm.blitz    Bigdata
+blitz1-dnds2-5-sfm    CentOS 6.8    yes    ACTIVE    VERSION sfdc-CE6.9-2017-05    blitz1    sfm    sfm.blitz    Bigdata

@@ -3,6 +3,7 @@ from collections import Counter
 
 def parseweblog(logfile):
     f = open(logfile,'r')
+    
     hosts = {}
     for line in f:
         data = line.split()

@@ -1,10 +1,10 @@
 from binaryTree import  BinaryTree
 class BinarySearchTree:
     def __init__(self, value):
-        self.value = value 
-        self.left_child = None 
-        self.right_child = None 
-    
+        self.value = value
+        self.left_child = None
+        self.right_child = None
+
     def insert_node(self, value):
         if value <= self.value and self.left_child:
             self.left_child.insert_node(value)
@@ -14,7 +14,7 @@ class BinarySearchTree:
             self.right_child.insert_node(value)
         else:
             self.right_child = BinarySearchTree(value)
-    
+
     def find_node(self, value):
         if value < self.value and self.left_child:
             return self.left_child.find_node(value)
@@ -45,10 +45,10 @@ class BinarySearchTree:
                 temp = self.left_child
                 self.value = None
                 return temp
-            
+
             temp = find_minimum_value()
             self.right_child.remove_node(temp.value )
-        
+
         return self
 
 
@@ -58,9 +58,9 @@ class BinarySearchTree:
 
 
 
-        
 
-        
+
+
 
 bst = BinarySearchTree(15)
 

@@ -1,14 +1,8 @@
 
-
-
 def child(w):
     while True:
         msg = "fff"
         os.write(w, msg)
-
-
-
-
 
 
 def parent():
@@ -18,4 +12,4 @@ def parent():
         child(w)
     else:
         data = os.read(r, 32)
-        print data 
+        print data

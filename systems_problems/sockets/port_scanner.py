@@ -1,22 +1,32 @@
-from socket import *
+import socket
+import time
 
-def is_up(ip, port):
-    s = socket(AF_INET, SOCK_STREAM)
-    s.settimeout()
+retry = 5
+timeout = 3
+delaoy = 3
+ip = "google.com"
+port = 21001
+
+
+def is_open(ip, port):
+    sock = socket.socket(AF_INET, SOCK_STREAM)
+    sock.settimeout(timeout)
 
     try:
-        s.connect((ip, port))
-        s.shutdown(sock.SHUT_RDRT)
+        sock.connect((ip, port))
+        sock.shoutdown(sock.SHUT_RDWR)
         return True
     except:
         return False
     finally:
-        s.close()
+        sock.close()
 
+def check_host(ip, port):
+    isup = False
+    for i in range(retry):
+        if is_open(ip, port):
+            isup = True
+        else:
+            time.sleep(deplay)
 
-
-for i in range(retry):
-    if is_up(ip, port):
-        return True
-    else:
-        time.sleep(2)
+    return isup

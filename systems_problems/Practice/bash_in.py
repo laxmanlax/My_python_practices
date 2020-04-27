@@ -6,7 +6,7 @@ def execute_commands(cmd):
         subprocess.run(cmd.split())
     except Exception:
         print "Command not found {}".format(cmd)
-        
+
 
 def psh_cd(path):
     """convert to absolute path and change directory"""

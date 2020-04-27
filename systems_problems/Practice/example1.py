@@ -15,7 +15,7 @@ def parsefile(filename):
 
 def example1(filename):
     host_list = re.findall("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" , open(filename, 'r').read())
-    return Counter(host_list)
+    #return Counter(host_list)
 
     for host in host_list:
         count[host] = 1

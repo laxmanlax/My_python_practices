@@ -1,9 +1,9 @@
 class Node(object):
     def __init__(self, data):
-        self.data = data 
-        self.leftChild = None 
+        self.data = data
+        self.leftChild = None
         self.rightChild = None
-    
+
     def insert(self, data):
         ''' for inserting data into the tree '''
         if self.data == data:
@@ -16,7 +16,7 @@ class Node(object):
                 return self.leftChild.insert(data)
             else:
                 self.leftChild = Node(data)
-                return True 
+                return True
         else:
             ''' Data is greater then the root data is placed in the right of the root'''
             if self.rightChild:
@@ -24,18 +24,18 @@ class Node(object):
             else:
                 self.rightChild = Node(data)
                 return True
-    
+
 
     def minValueNode(self, node):
-        current = node 
+        current = node
         while (current.leftChild is not None):
             current = current.leftChild
         return current
-    
+
     def delete(self, data):
         if self is None:
             return None
-        
+
         if data < self.data:
             self.leftChild = self.leftChild.delete(data)
         elif data > self.data:
@@ -43,7 +43,7 @@ class Node(object):
         else:
             if self.leftChild is None:
                 temp = self.leftChild
-                self = None 
+                self = None
                 return temp
             elif self.rightChild is None:
                 temp = self.rightChild
@@ -55,22 +55,22 @@ class Node(object):
             self.rightChild = self.rightChild.delete(temp.data)
 
         return self
-    
+
     def find(self, data):
         ''' this function checks whether the specified data is in tree or not '''
         if data == self.data:
-            return True 
+            return True
         elif data < self.data:
             if self.leftChild:
                 return self.leftChild.find(data)
             else:
-                return False 
+                return False
         else:
             if self.rightChild:
                 return self.rightChild.find(data)
             else:
                 return False
-    
+
     def preorder(self):
         if self:
             print (str(self.data))
@@ -78,7 +78,7 @@ class Node(object):
                 self.leftChild.preorder()
             if self.rightChild:
                 self.rightChild.preorder()
-    
+
 
     def inorder(self):
         if self:
@@ -87,12 +87,12 @@ class Node(object):
             print (str(self.data))
             if self.rightChild:
                 self.rightChild.inorder()
-    
+
     def postorder(self):
         if self:
             if self.leftChild:
                 self.leftChild.postorder()
-            
+
             if self.rightChild:
                 self.rightChild.postorder()
 
@@ -108,26 +108,26 @@ class  Tree(object):
             return self.root.insert(data)
         else:
             self.root = Node(data)
-            return True 
-    
+            return True
+
     def delete(self, data):
         if self.root is not None:
             return self.root.delete(data)
         else:
             return False
-    
+
     def find(self, data):
         if self.root:
             return self.root.find(data)
         else:
-            return False 
-    
+            return False
+
     def preorder(self):
         if self.root is not None:
             print ()
             print ("Preorder: ")
             self.root.preorder()
-    
+
     def inorder(self):
         if self.root is not None:
             print ()
@@ -140,7 +140,7 @@ class  Tree(object):
             print ("Postorder: ")
             self.root.postorder()
 
-    
+
 
 if __name__ == '__main__':
     tree = Tree()
@@ -178,16 +178,3 @@ if __name__ == '__main__':
     tree.delete(10)
     tree.inorder()
     tree.preorder()
-
-
-
-
-        
-
-    
-
-        
-
-
-
-

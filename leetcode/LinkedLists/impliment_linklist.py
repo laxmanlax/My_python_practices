@@ -28,7 +28,7 @@ class UnorderdList:
 
 		if self.head == None:
 			print "empty Linked List"
-		else:
+		else:     
 			while current.next is not None:
 				print current.item
 				current  = current.next 
@@ -51,6 +51,7 @@ class UnorderdList:
 			if current.next == None:
 				break
 			prev, current = current, current.next
+			
 		if prev == None:
 			self.head = current.next
 		else:
@@ -65,6 +66,7 @@ class UnorderdList:
 			if current.item == value:
 				break
 			prev, current = current, current.next
+			
 		if prev == None:
 			self.head = current.next
 		else:
@@ -92,7 +94,7 @@ class UnorderdList:
 
 node = UnorderdList()
 
-### add node infront 
+print "### add node infront"
 node.addNodeINFront(10)
 node.addNodeINFront(11)
 node.addNodeINFront(12)
@@ -104,31 +106,31 @@ node.addNodeINFront(16)
 node.PrintLinkedList()
 print ("\n")
 
-### reverse a Linked List
+print "### reverse a Linked List \n"
 node.reverseLLRecursive(node.head)
 node.PrintLinkedList()
 
 
-### reverse a Linked List
+print "### reverse a Linked List \n"
 node.reverseLinkList()
 node.PrintLinkedList()
 
-### add node at last
+print "### add node at last \n"
 node.addNodeAtLast(1)
 node.PrintLinkedList()
 print ("\n")
 
-### delete front Node 
+print "### delete front Node \n"
 node.deleteFrontNode()
 node.PrintLinkedList()
 print ("\n")
 
-### delete Last Node
+print "### delete Last Node \n"
 node.deleteLastNode()
 node.PrintLinkedList()
 print ("\n")
 
-### delete a given Node from the Linked - List
+print "### delete a given Node from the Linked - List \n"
 node.deleteANode(12)
 node.deleteANode(11)
 node.PrintLinkedList()

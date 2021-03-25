@@ -1,0 +1,18 @@
+### All about docker 
+
+Commands:
+docker run -i -t ubuntu /bin/bash
+docker run -d -p 80:80 docker/getting-started
+
+You can stop and remove a container in a single command by adding the “force” flag to the docker rm command. 
+For example: docker rm -f <the-container-id>
+
+docker push docker/getting-started
+docker tag getting-started YOUR-USER-NAME/getting-started
+docker push YOUR-USER-NAME/getting-started
+
+
+docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"
+docker exec <container-id> cat /data.txt
+docker run -it ubuntu ls /
+

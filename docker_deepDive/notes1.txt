@@ -1,0 +1,20 @@
+## What is a Container 
+    :: Light Waight VM
+       - Cgroups
+       - Namespaces
+       - Union-Capabe FS 
+
+    :: Control Groups 
+       - Organise all processes in the system
+       - Account for resource usage and gather utilization data
+       - Limit or prioritize resource utilization
+       - Every process is tracked with Cgroups reguardless it is a container or NOT
+       - Cgroups are used to associate processes with resources 
+       - With a Cgroup you can track how much a group of processes are using for a given kind of resource 
+       - It help limit and priotize what resources are avaliable to a group of processes 
+  
+    :: Namespace
+       -   Limits what you can see 
+           - Multiple Namespaces
+             . pid, net, mnt, uts, ipc, user
+           - Each process is in one namespace of each type 

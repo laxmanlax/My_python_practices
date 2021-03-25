@@ -1,0 +1,242 @@
+## Kubernetes ##
+
+1 - SetUp a single node kubernetes cluster 
+----------------------------------------------------
+Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node.
+
+:: minikube version
+:: minikube start 
+
+
+
+2 - Deploy an app on a single POD 
+-----------------------------------------------------
+Deploy using command 
+:: kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+:: kubectl get deployments
+:: kubectl get pods
+
+:: kubectl apply -f nginx-deployment.yaml
+:: kubectl rollout status deployment/nginx-deployment
+:: kubectl get rs
+:: kubectl describe deployment nginx-deployment
+
+
+3 - Veirify that the POD is deployed and running 
+-------------------------------------------------------
+:: kubectl get - list resources
+:: kubectl describe - show detailed information about a resource
+:: kubectl logs $POD_NAME - print the logs from a container in a pod
+:: kubectl exec - execute a command on a container in a pod
+   :: - kubectl exec <container> -- <command> [ kubectl exec block-pod -- ls -l /dev ]
+
+
+4 - Expose service so that we can access the it from outside
+-------------------------------------------------------
+Deploy using command
+:: kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+:: :: -->  use ingress servies 
+  
+
+5 - Scale the application on mulitple pods:
+--------------------------------------------------------
+:: 
+
+
+
+6 - Perform rolling Upgreade -- Upgrade versions 
+--------------------------------------------------------
+:: Updating a Deployment 
+:: kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1 --record
+:: kubectl rollout status deployment/nginx-deployment
+:: ( We can also try -- kubectl edit deployment.v1.apps/nginx-deployment )
+:: kubectl rollout history deployment.v1.apps/nginx-deployment
+
+
+7 - Adding Storage in Deployments in Multicontainer pods
+--------------------------------------------------------
+INFO :: The key difference between stateful and stateless applications is that stateless applications don't “store” data whereas stateful applications require backing storage. Stateful applications like the Cassandra, MongoDB and mySQL databases all require some type of persistent storage that will survive service restarts.
+
+-- Create a Presisitent Volume 
+-- [ 50 GB DISK ] <<----->> PV <<------>> PVC 
+
+:: PersistentVolume
+:: PersistentVolumeClaim
+:: StorageClass
+
+**** CSI -- Container storage Interface *****
+
+ps-pod.yaml
+----------------
+apiVersion:v1
+kind: Pod
+metadata:
+  name: first-pod
+spec:
+ volumes:
+  - name: fast50g
+    PersistentVolumeClaim:
+      claimName: ps-pvc
+ containers:
+  - image : ubuntu:latest
+    name : ctr1
+    command:
+    - /bin/bash
+    - "-c"
+    - "sleep 60m"
+  VolumeMounts:
+  - mountsPath: /data
+    name: fast50g
+-----------------
+
+
+ps-pv.yaml ( PV example )
+-------------
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ps-pv [ can be any name ]
+spec:
+ accessModes:
+  - ReadWriteOnce [ There are three accessMode - RWO:Read-write Once This PV can be claimed once in R/W mode by one pod / so any other pod can't access ] 
+                  [ RWM - We can use it on all pods ]  
+                  [ ROM - We can use it to read in all pods ]
+ storageClassName: pas-fase
+ capacity:
+  strage: 50Gi
+ persistentVolumeReclaimPolicy: Retain
+ gcePersistentDisk: [ This is plugin for GCP ]
+  pdName: ps-vol
+----------------
+
+
+ps-pvc.yaml ( used by the pod to claim the storge )
+--------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: ps-pvc
+spec:
+ accessMode:
+  - ReadWriteMode
+ storageClassName: ps-fase
+ resources:
+  resuests:
+   storage: 50Gi
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Need to use plugin to connect to specific device 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8 - Delete Cluster and Deployments
+--------------------------------------------------------
+:: kubectl delete service hello-node
+:: kubectl delete deployment hello-node
+
+
+##################
+kubectl version
+kubectl cluster-info
+kubectl get nodes
+
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+
+kubectl get - list resources
+kubectl describe - show detailed information about a resource
+kubectl logs $POD_NAME - print the logs from a container in a pod
+kubectl exec - execute a command on a container in a pod
+   
+kubectl exec $POD_NAME env  ( execut the command directly on the pod container )
+kubectl exec -it $POD_NAME bash ( login on the pod container )
+
+kubectl get services
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+kubectl describe services/kubernetes-bootcamp
+
+
+
+##################
+#To apply a new label we use the label command followed by the object type, object name and the new label:
+kubectl label pod $POD_NAME app=v1
+
+kubectl delete service -l run=kubernetes-bootcamp
+kubectl get services
+
+curl $(minikube ip):$NODE_PORT
+
+kubectl exec -ti $POD_NAME curl localhost:8080
+kubectl get pods -o wide
+
+#let’s scale the Deployment to 4 replicas. We’ll use the kubectl scale command
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+
+
+###################
+To update the image of the application to version 2, use the set image command, 
+followed by the deployment name and the new image version:
+
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+kubectl rollout status deployments/kubernetes-bootcamp
+
+#Let’s roll back to our previously working version. We’ll use the rollout undo command:
+kubectl rollout undo deployments/kubernetes-bootcamp
+
+
+--------------------------------------
